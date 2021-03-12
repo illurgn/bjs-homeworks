@@ -19,7 +19,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     if (dates <= 0) {
     	return `Параметр 'Срок ипотеки' содержит неправильное значение ${date}`;
     }
-    console.log(isNaN(date));
 
     let months = dates * 12;
     let monthlyPayment = credit * (monthlyPercent + monthlyPercent / (((1 + monthlyPercent) ** months) - 1));

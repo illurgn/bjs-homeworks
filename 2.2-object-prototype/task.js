@@ -1,13 +1,13 @@
 'use strict';
 //String.prototype.isPalindrome - для задачи №1
-/*String.prototype = isPalindrome();
+String.prototype.isPalindrome = function isPalindrome() {
+	let str = this.toLowerCase().replace(/\s/g, "").split("");
 
-function isPalindrome() {
-    this === this.reverse();
-}*/
+	return str.join("") === str.reverse().join("");
+}
 
 //задача №2
-function getAverageMark(marks) { // тесты прошли
+function getAverageMark(marks) {
     let sum = 0;
 
     if (marks.length === 0) {
@@ -22,11 +22,14 @@ function getAverageMark(marks) { // тесты прошли
 }
 
 //задача №3
-/*function checkBirthday(birthday) {
-    let now = Date.now();
-    let birthday = Date.now(birthday);
-    let diff = now - birthday; // код для задачи №3 писать здесь
-    let age = Math.trunc(diff / 31536000000);
+function checkBirthday(birthday) {
+    let mlsYear = 365.242 * 24 * 60 * 60 * 1000;
+    let now = (new Date()).getTime();
+    let birthdayCheck = +new Date(birthday);
+    let diff = now - birthdayCheck; 
+    let age = diff / mlsYear;
 
-    return age;
-}*/
+    if (age > 18) {
+    	return age;
+    }
+}
